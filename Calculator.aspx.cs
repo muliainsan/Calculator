@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 namespace Calc
 {
     public partial class Calculator : System.Web.UI.Page
@@ -68,7 +68,7 @@ namespace Calc
 
         protected void ButtonComa_Click(object sender, EventArgs e)
         {
-            calc_result.Value = calc_result.Value + ",";
+            calc_result.Value = calc_result.Value + ".";
         }
 
         protected void ButtonPlusMinus_Click(object sender, EventArgs e)
@@ -87,84 +87,37 @@ namespace Calc
 
         protected void ButtonPlus_Click(object sender, EventArgs e)
         {
-            if (calc_result.Value == string.Empty)
-            {
-                Response.Write("<script>alert('No Value is given.')</script>");
-            }
-            else
-            {
-                ViewState["Value1"] = calc_result.Value;
-                ViewState["Operation"] = "Addition";
-                calc_result.Value = string.Empty;
-            }
+                calc_result.Value = calc_result.Value + "+";
         }
 
         protected void ButtonMinus_Click(object sender, EventArgs e)
         {
-            if (calc_result.Value == string.Empty)
-            {
-                Response.Write("<script>alert('No Value is given.')</script>");
-            }
-            else
-            {
-                ViewState["Value1"] = calc_result.Value;
-                ViewState["Operation"] = "Subtraction";
-                calc_result.Value = string.Empty;
-            }
+            calc_result.Value = calc_result.Value + "-";
         }
 
         protected void ButtonMultiply_Click(object sender, EventArgs e)
-        {
-            if (calc_result.Value == string.Empty)
-            {
-                Response.Write("<script>alert('No Value is given.')</script>");
-            }
-            else
-            {
-                ViewState["Value1"] = calc_result.Value;
-                ViewState["Operation"] = "Multiplication";
-                calc_result.Value = string.Empty;
-            }
+        { 
+            calc_result.Value = calc_result.Value + "*";
         }
 
         protected void ButtonDivide_Click(object sender, EventArgs e)
-        {
-            if (calc_result.Value == string.Empty)
-            {
-                Response.Write("<script>alert('No Value is given.')</script>");
-            }
-            else
-            {
-                ViewState["Value1"] = calc_result.Value;
-                ViewState["Operation"] = "Division";
-                calc_result.Value = string.Empty;
-            }
+        { 
+            calc_result.Value = calc_result.Value + "/";
         }
 
-        protected void ButtonPercentage_Click(object sender, EventArgs e)
+        protected void ButtonKa_Click(object sender, EventArgs e)
         {
-            if (calc_result.Value == string.Empty)
-            {
-                Response.Write("<script>alert('No Value is given.')</script>");
-            }
-            else
-            {
-                ViewState["Value1"] = calc_result.Value;
-                ViewState["Operation"] = "Percentage";
-                calc_result.Value = string.Empty;
-            }
+            calc_result.Value = calc_result.Value + "(";
+        }
+
+        protected void ButtonKi_Click(object sender, EventArgs e)
+        {
+            calc_result.Value = calc_result.Value + ")";
         }
 
         protected void ButtonCE_Click(object sender, EventArgs e)
         {
-            if ((string)ViewState["Operation"] != null)
-            {
-                ViewState["Operation"] = null;
-            }
-            else if ((string)ViewState["Value1"] != null)
-            {
-                ViewState["Value1"] = null;
-            }
+            calc_result.Value = string.Empty;
         }
 
         protected void ButtonReturn_Click(object sender, EventArgs e)
@@ -189,44 +142,19 @@ namespace Calc
 
         protected void ButtonEquals_Click(object sender, EventArgs e)
         {
-            if (calc_result.Value == string.Empty)
+            
+            string value = new DataTable().Compute(calc_result.Value, null).ToString();
+            if (double.IsInfinity(Convert.ToDouble(value)))
             {
-                Response.Write("<script>alert('No Value is given.')</script>");
+                Response.Write("<script>alert('Infinity Result')</script>");
+                calc_result.Value = string.Empty;
             }
             else
             {
-                ViewState["Value2"] = calc_result.Value;
-                calc_result.Value = string.Empty;
-
-                try
-                {
-                    if ((string)ViewState["Operation"] == "Addition")
-                    {
-                        calc_result.Value = _Calculate.Add(Convert.ToInt32(ViewState["Value1"]), Convert.ToInt32(ViewState["Value2"])).ToString();
-                    }
-                    else if ((string)ViewState["Operation"] == "Subtraction")
-                    {
-                        calc_result.Value = _Calculate.Subtract(Convert.ToInt32(ViewState["Value1"]), Convert.ToInt32(ViewState["Value2"])).ToString();
-                    }
-                    else if ((string)ViewState["Operation"] == "Multiplication")
-                    {
-                        calc_result.Value = _Calculate.Multiply(Convert.ToInt32(ViewState["Value1"]), Convert.ToInt32(ViewState["Value2"])).ToString();
-                    }
-                    else if ((string)ViewState["Operation"] == "Division")
-                    {
-                        calc_result.Value = _Calculate.Divide(Convert.ToInt32(ViewState["Value1"]), Convert.ToInt32(ViewState["Value2"])).ToString();
-                    }
-                    else if ((string)ViewState["Operation"] == "Percentage")
-                    {
-                        calc_result.Value = _Calculate.Percentage(Convert.ToInt32(ViewState["Value1"]), Convert.ToInt32(ViewState["Value2"])).ToString();
-                    }
-                    else Response.Write("<script>alert('No Operation was recorded.')</script>");
-                }
-                catch (FormatException)
-                {
-                    Response.Write("<script>alert('Bad Input Format.')</script>");
-                }
+                calc_result.Value = value.ToString();
             }
+            
+            
         }
 
     }

@@ -33,42 +33,6 @@ namespace Calc
         protected global::System.Web.UI.HtmlControls.HtmlInputText calc_result;
 
         /// <summary>
-        /// ButtonCE control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCE;
-
-        /// <summary>
-        /// ButtonReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonReturn;
-
-        /// <summary>
-        /// ButtonPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPercentage;
-
-        /// <summary>
-        /// ButtonPlus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPlus;
-
-        /// <summary>
         /// Button7 control.
         /// </summary>
         /// <remarks>
@@ -96,13 +60,13 @@ namespace Calc
         protected global::System.Web.UI.WebControls.Button Button9;
 
         /// <summary>
-        /// ButtonMinus control.
+        /// ButtonDivide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonMinus;
+        protected global::System.Web.UI.WebControls.Button ButtonDivide;
 
         /// <summary>
         /// Button4 control.
@@ -168,13 +132,13 @@ namespace Calc
         protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// ButtonDivide control.
+        /// ButtonMinus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDivide;
+        protected global::System.Web.UI.WebControls.Button ButtonMinus;
 
         /// <summary>
         /// Button0 control.
@@ -186,22 +150,49 @@ namespace Calc
         protected global::System.Web.UI.WebControls.Button Button0;
 
         /// <summary>
-        /// ButtonPlusMinus control.
+        /// Button10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPlusMinus;
+        protected global::System.Web.UI.WebControls.Button Button10;
 
         /// <summary>
-        /// ButtonComa control.
+        /// Button11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonComa;
+        protected global::System.Web.UI.WebControls.Button Button11;
+
+        /// <summary>
+        /// ButtonPlus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonPlus;
+
+        /// <summary>
+        /// ButtonC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonC;
+
+        /// <summary>
+        /// ButtonCE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCE;
 
         /// <summary>
         /// ButtonEquals control.
